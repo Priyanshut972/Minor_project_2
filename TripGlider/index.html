@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="indx_style.css">
+</head>
+<body>
+  <header>
+    <nav>
+        <ul>
+            <li><a href="Temp.html">Home</a></li>
+            <li><a href="services.html">Service</a></li>
+            <li><a href="places.html">Places</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li id="user-info" style="display: none;"></li>
+        </ul>
+    </nav>
+    <h1>Login Or Register</h1>
+  </header>
+  <div class="login-container">
+    <div id="main">
+      <h2>Sign In</h2>
+      <input id="email" type="text" placeholder="Email"></input>
+      <input id="password" type="password" placeholder="Password"></input>
+      <button id="submit">Submit</button>
+      <p><span>or</span></p>
+      <button id="sign-up">Sign Up</button>
+    </div>
+
+    <div id="create-acct">
+      <h1>Create an Account</h1>
+      <input id="email-signup" type="text" placeholder="Email *"></input>
+      <input id="confirm-email-signup" type="email" placeholder="Confirm Email *"></input>
+      <input id="password-signup" type="password" placeholder="Password *"></input>
+      <input id="confirm-password-signup" type="password" placeholder="Confirm Password *"></input>
+      <button id="create-acct-btn">Create Account</button>
+      <button id="return-btn">Return to Login</button>
+    </div>
+  </div>
+  <script type="module" src="script.js"></script>
+  <script>
+    var userInfo = localStorage.getItem("userInfo");
+    if (userInfo) 
+    {
+      document.getElementById("user-info").innerText = "Welcome, " + userInfo;
+      document.getElementById("user-info").style.display = "block";
+    }
+    document.getElementById("submit").addEventListener("click", function() 
+    {
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      if (email.trim() !== "" && password.trim() !== "") 
+      {
+        window.location.href = "Temp.html";
+      } 
+      else 
+      {
+        alert("Please enter both email and password.");
+      }
+    });
+  </script>
+</body>
+</html>
